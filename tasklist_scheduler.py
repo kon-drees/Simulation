@@ -42,5 +42,8 @@ print(even_list_scheduler(task_data, 1000, 16))
 
 data = {'Name': ['imgread', 'grayscale left', 'grayscale right', 'sobel left', 'sobel right', 'SDE', 'imgwrite'], 'Runtime': [1, 2, 2, 6, 6, 10, 1]}
 image_processing_tasks = pd.DataFrame(data)
-print(list_scheduler(image_processing_tasks, 7, 4))
+for _ in range(999):
+    image_processing_tasks = image_processing_tasks.append(pd.DataFrame(data), ignore_index=True)
+
+print(list_scheduler(image_processing_tasks, len(image_processing_tasks), 4))
 
